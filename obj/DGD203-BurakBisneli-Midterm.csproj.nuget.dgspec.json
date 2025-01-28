@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm.csproj": {}
+    "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-SecretMaze\\DGD203-BurakBisneli-Midterm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm.csproj": {
+    "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-SecretMaze\\DGD203-BurakBisneli-Midterm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm.csproj",
+        "projectUniqueName": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-SecretMaze\\DGD203-BurakBisneli-Midterm.csproj",
         "projectName": "DGD203-BurakBisneli-Midterm",
-        "projectPath": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm.csproj",
+        "projectPath": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-SecretMaze\\DGD203-BurakBisneli-Midterm.csproj",
         "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-Midterm\\DGD203-BurakBisneli-Midterm\\obj\\",
+        "outputPath": "C:\\Users\\burak\\Desktop\\ISU-DigitalGameDesign\\DGD203 Game Programming 1\\DGD203-BurakBisneli-SecretMaze\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config"

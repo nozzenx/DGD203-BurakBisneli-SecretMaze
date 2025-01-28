@@ -37,7 +37,7 @@ public class Game
         Console.WriteLine("---------------------------------");
         Console.WriteLine("!Map needs to CONTAIN!");
         Console.WriteLine("\u2588: This is the wall of the labyrinth.");
-        Console.WriteLine("X: This is you in the map you can change your  in game.");
+        Console.WriteLine("X: This is you in the map you can change your position in game.");
         Console.WriteLine("I: This is a item in the map.");
         Console.WriteLine("S: This is an npc in the map.");
         Console.WriteLine("!!IF YOU DONT SEE SOME OF THEM OR MAP LOOKS WEIRD (Or if you dont like the shape of the roads) PLEASE RESTART THE GAME NOW!!");
