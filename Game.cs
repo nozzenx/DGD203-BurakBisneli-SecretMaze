@@ -38,7 +38,7 @@ public class Game
         Console.WriteLine("!Map needs to CONTAIN!");
         Console.WriteLine("\u2588: This is the wall of the labyrinth.");
         Console.WriteLine("X: This is you in the map you can change your position in game.");
-        Console.WriteLine("I: This is a item in the map.");
+        Console.WriteLine("?: This is a secret thing in the map (It needs to be 3 of them.).");
         Console.WriteLine("S: This is an npc in the map.");
         Console.WriteLine("!!IF YOU DONT SEE SOME OF THEM OR MAP LOOKS WEIRD (Or if you dont like the shape of the roads) PLEASE RESTART THE GAME NOW!!");
         Console.WriteLine("---------------------------------");
@@ -56,7 +56,7 @@ public class Game
         Tools.WaitSeconds(2);
         
         
-        while (!Maze.itemGiven)
+        while (!Maze.itemsGiven)
         {
             int directionInput = 0;
             bool isValidInput = false;
@@ -88,12 +88,25 @@ public class Game
                 }
             }
             Maze.UpdatePlayerPos(directionInput, _playerName);
+            Console.Clear();
             
         }
+        Tools.WaitSeconds(2);
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Game is over. Thank you for playing!");
         Console.WriteLine("---------------------------------");
-        Tools.WaitSeconds(4);
+        Console.WriteLine("CREDITS");
+        Console.WriteLine("Game Design");
+        Console.WriteLine("Burak Bisneli");
+        Console.WriteLine(" ");
+        Console.WriteLine("Programming");
+        Console.WriteLine("Burak Bisneli");
+        Console.WriteLine("ChatGPT");
+        Console.WriteLine("ClaudeAI");
+        Console.WriteLine(" ");
+        Console.WriteLine("Story");
+        Console.WriteLine("Burak Bisneli");
         
+        Tools.WaitSeconds(4);
     }
 }

@@ -20,9 +20,13 @@ public static class Maze
     private static Vector _playerPos;
     
     private static Vector _npcPos;
-    private static Vector _itemPos;
-    private static bool _itemCollected = false;
-    public static bool itemGiven = false;
+    private static Vector _item01Pos;
+    private static bool _item01Collected = false;
+    private static Vector _item02Pos;
+    private static bool _item02Collected = false;
+    private static Vector _item03Pos;
+    private static bool _item03Collected = false;
+    public static bool itemsGiven = false;
 
     private static readonly Vector[] Directions = new Vector[] // I used ChatGPT for suggestions, and it recommends that for more readable code. 
     {
@@ -104,7 +108,7 @@ public static class Maze
 
         foreach (var cell in maze)
         {
-            if (cell != _playerPos || cell != _npcPos || cell != _itemPos)
+            if (cell != _playerPos || cell != _npcPos || cell != _item01Pos)
                 grid[cell.X, cell.Y] = ' ';
             
         }
@@ -112,8 +116,12 @@ public static class Maze
         {
             if (cell == _playerPos )
                 grid[cell.X, cell.Y] = 'X';
-            if (cell == _itemPos && !_itemCollected)
-                grid[cell.X, cell.Y] = 'I';
+            if (cell == _item01Pos && !_item01Collected)
+                grid[cell.X, cell.Y] = '?';
+            if (cell == _item02Pos && !_item02Collected)
+                grid[cell.X, cell.Y] = '?';
+            if (cell == _item03Pos && !_item03Collected)
+                grid[cell.X, cell.Y] = '?';
             if (cell == _npcPos)
                 grid[cell.X, cell.Y] = 'S';
         }
@@ -259,16 +267,16 @@ public static class Maze
                 break;
         }
 
-        if (_playerPos == _itemPos && !_itemCollected)
+        if (_playerPos == _item01Pos && !_item01Collected)
         {
             int answerInput = 0;
             bool isValidInput = false;
             while (!isValidInput)
             {
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine("There's a magic gauntlet here. Should I take it?");
-                Console.WriteLine("1. Take the magic gauntlet.");
-                Console.WriteLine("2. Leave the magic gauntlet.");
+                Console.WriteLine("There's a shining stone here. Should I take it?");
+                Console.WriteLine("1. Take the shining stone.");
+                Console.WriteLine("2. Leave the shining stone.");
                 Console.WriteLine("---------------------------------");
                 string input = Console.ReadLine()!;
                 
@@ -291,9 +299,9 @@ public static class Maze
             switch (answerInput)
             {
                 case 1:
-                    _itemCollected = true;
+                    _item01Collected = true;
                     Console.WriteLine("---------------------------------");
-                    Console.WriteLine($"You got magic gauntlet.");
+                    Console.WriteLine($"You got shining stone.");
                     Console.WriteLine("---------------------------------");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
@@ -301,13 +309,118 @@ public static class Maze
                     break;
                 case 2:
                     Console.WriteLine("---------------------------------");
-                    Console.WriteLine($"You leaved the magic gauntlet.");
+                    Console.WriteLine($"You leaved the shining stone.");
                     Console.WriteLine("---------------------------------");
                     Console.WriteLine("Press enter to continue...");
                     Console.ReadLine();
                     break;
             }
         }
+        
+        
+        if (_playerPos == _item02Pos && !_item02Collected)
+        {
+            int answerInput = 0;
+            bool isValidInput = false;
+            while (!isValidInput)
+            {
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("There's a shining stone here. Should I take it?");
+                Console.WriteLine("1. Take the shining stone.");
+                Console.WriteLine("2. Leave the shining stone.");
+                Console.WriteLine("---------------------------------");
+                string input = Console.ReadLine()!;
+                
+                if (string.IsNullOrEmpty(input))
+                    Console.WriteLine("Please enter a valid input.");
+                else
+                {
+                    try
+                    {
+                        answerInput = Convert.ToInt32(input);
+                        isValidInput = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Please enter a valid input.");
+                    }
+                }
+            }
+
+            switch (answerInput)
+            {
+                case 1:
+                    _item02Collected = true;
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine($"You got shining stone.");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+                    
+                    break;
+                case 2:
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine($"You leaved the shining stone.");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        
+        
+        
+        if (_playerPos == _item03Pos && !_item03Collected)
+        {
+            int answerInput = 0;
+            bool isValidInput = false;
+            while (!isValidInput)
+            {
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("There's a shining stone here. Should I take it?");
+                Console.WriteLine("1. Take the shining stone.");
+                Console.WriteLine("2. Leave the shining stone.");
+                Console.WriteLine("---------------------------------");
+                string input = Console.ReadLine()!;
+                
+                if (string.IsNullOrEmpty(input))
+                    Console.WriteLine("Please enter a valid input.");
+                else
+                {
+                    try
+                    {
+                        answerInput = Convert.ToInt32(input);
+                        isValidInput = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Please enter a valid input.");
+                    }
+                }
+            }
+
+            switch (answerInput)
+            {
+                case 1:
+                    _item03Collected = true;
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine($"You got shining stone.");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+                    
+                    break;
+                case 2:
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine($"You leaved the shining stone.");
+                    Console.WriteLine("---------------------------------");
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        
+        
 
         if (_playerPos == _npcPos)
         {
@@ -352,8 +465,9 @@ public static class Maze
                         Console.WriteLine($"1. Where are we? I was sleeping in my bed and suddenly I found myself here.");
                         Console.WriteLine($"2. What are you doing here?");
                         Console.WriteLine($"3. Are you a sorcerer?");
-                        if(_itemCollected)
-                            Console.WriteLine($"4. Give the magic gauntlet.");
+                        Console.WriteLine($"4. Leave.");
+                        if(_item01Collected && _item02Collected && _item03Collected)
+                            Console.WriteLine($"5. Give the stones.");
                         Console.WriteLine("---------------------------------");
                         string input = Console.ReadLine()!;
                 
@@ -379,13 +493,12 @@ public static class Maze
                                         Tools.WaitSeconds(2);
                                         Console.WriteLine($"{playerName}: What kind of help?");
                                         Tools.WaitSeconds(2);
-                                        Console.WriteLine($"Sorcerer: Find my magic gauntlet in the labyrinth and bring it to me and i can help you get out of here.");
+                                        Console.WriteLine($"Sorcerer: Find my 3 power stones in the labyrinth and bring it to me and i can help you get out of here.");
                                         Tools.WaitSeconds(2);
                                         Console.WriteLine($"{playerName}: Okay, i will find and get it to you.");
                                         
                                         Console.WriteLine("Press enter to continue...");
                                         Console.ReadLine();
-                                        sorcererTalkLoop = true;
                                         break;
                                     case 2:
                                         Console.WriteLine($"Sorcerer: I'm relaxing a bit. I will be leaving soon.");
@@ -399,16 +512,20 @@ public static class Maze
                                         Console.ReadLine();
                                         break;
                                     case 4:
-                                        if (_itemCollected)
+                                        Console.WriteLine($"I need to leave now.");
+                                        sorcererTalkLoop = true;
+                                        break;
+                                    case 5:
+                                        if (_item01Collected && _item02Collected && _item03Collected)
                                         {
-                                            Console.WriteLine($"{playerName}: I found your gauntlet.");
+                                            Console.WriteLine($"{playerName}: I found your stones.");
                                             Tools.WaitSeconds(2);
                                             Console.WriteLine($"Sorcerer: Thank you, young man I will teleport you to the exit now.");
                                             Tools.WaitSeconds(2);
                                             Console.WriteLine($"{playerName}: Good to see you mr sorcerer.");
                                             Console.WriteLine("Press enter to continue...");
                                             Console.ReadLine();
-                                            itemGiven = true;
+                                            itemsGiven = true;
                                             sorcererTalkLoop = true;
                                             break;   
                                         }
@@ -432,8 +549,10 @@ public static class Maze
     private static void GenerateOtherObjects()
     {
         _npcPos = _maze[Rnd.Next(_maze.Count)];
-        _itemPos = _maze[Rnd.Next(_maze.Count)];
+        _item01Pos = _maze[Rnd.Next(_maze.Count)];
+        _item02Pos = _maze[Rnd.Next(_maze.Count)];
+        _item03Pos = _maze[Rnd.Next(_maze.Count)];
         _maze.Add(_npcPos);
-        _maze.Add(_itemPos);
+        _maze.Add(_item01Pos);
     }
 }
