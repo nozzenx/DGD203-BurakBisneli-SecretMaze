@@ -5,11 +5,74 @@ public class Game
     private bool _isRunning = true;
     private bool _mapGenerated = false;
     private List<Maze.Vector> _map;
+    private bool gameEnded = false;
 
     private string? _playerName;
 
     public void GameTest()
     {
+        
+        while (!gameEnded)
+        {
+            int answerInput = 0;
+            bool isValidInput = false;
+            while (!isValidInput)
+            {
+                Console.WriteLine("----------SECRET LABYRINTH----------");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("1. New Game");
+                Console.WriteLine("2. Credits");
+                Console.WriteLine("3. Exit");
+                Console.WriteLine("---------------------------------");
+                string input = Console.ReadLine()!;
+                
+                if (string.IsNullOrEmpty(input))
+                    Console.WriteLine("Please enter a valid input.");
+                else
+                {
+                    try
+                    {
+                        answerInput = Convert.ToInt32(input);
+                        isValidInput = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Please enter a valid input.");
+                    }
+                }
+            }
+            
+            switch (answerInput)
+            {
+                case 1:
+                    _mapGenerated = false;
+                    Console.Clear();
+                    MainGameLoop();
+                    break;
+                case 2:
+                    Credits();
+                    break;
+                case 3:
+                    gameEnded = true;
+                    break;
+            }
+            
+        }
+        
+        
+        
+        
+       
+    }
+
+    private void MainGameLoop()
+    {
+        Maze.itemsGiven = false;
+        Maze._item01Collected = false;
+        Maze._item02Collected = false;
+        Maze._item03Collected = false;
+        
         
         while (!_mapGenerated) // I use ChatGPT for this my code giving error sometimes and I want to avoid that and try again. But I think it's still broken sometimes.
         {
@@ -95,7 +158,15 @@ public class Game
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Game is over. Thank you for playing!");
         Console.WriteLine("---------------------------------");
+        Tools.WaitSeconds(3);
+        Console.Clear();
+        Credits();
+    }
+    
+    private void Credits()
+    {
         Console.WriteLine("CREDITS");
+        Console.WriteLine("---------------------------------");
         Console.WriteLine("Game Design");
         Console.WriteLine("Burak Bisneli");
         Console.WriteLine(" ");
@@ -106,7 +177,6 @@ public class Game
         Console.WriteLine(" ");
         Console.WriteLine("Story");
         Console.WriteLine("Burak Bisneli");
-        
-        Tools.WaitSeconds(4);
+        Tools.WaitSeconds(5);
     }
 }

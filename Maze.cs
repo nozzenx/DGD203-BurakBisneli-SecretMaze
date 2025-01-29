@@ -21,11 +21,11 @@ public static class Maze
     
     private static Vector _npcPos;
     private static Vector _item01Pos;
-    private static bool _item01Collected = false;
+    public static bool _item01Collected = false;
     private static Vector _item02Pos;
-    private static bool _item02Collected = false;
+    public static bool _item02Collected = false;
     private static Vector _item03Pos;
-    private static bool _item03Collected = false;
+    public static bool _item03Collected = false;
     public static bool itemsGiven = false;
 
     private static readonly Vector[] Directions = new Vector[] // I used ChatGPT for suggestions, and it recommends that for more readable code. 
@@ -96,6 +96,7 @@ public static class Maze
 
     public static void Print(List<Vector> maze)
     {
+        Console.Clear();
         char[,] grid = new char[_width, _height];
 
         for (int y = 0; y < _height; y++)
